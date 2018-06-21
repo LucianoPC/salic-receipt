@@ -90,7 +90,7 @@ def download_receipt_files(limit, offset, output_folder):
     print_download_percentage(downloaded_receipts, len_receipts)
 
     for id_arquivo in id_arquivos:
-        download_receipt_file(id_arquivo, '.')
+        download_receipt_file(id_arquivo, output_folder)
 
         downloaded_receipts += 1
         print_download_percentage(downloaded_receipts, len_receipts)
@@ -99,5 +99,9 @@ def download_receipt_files(limit, offset, output_folder):
     print("Download completed!")
 
 
-if __name__ == '__main__':
+def main():
     download_receipt_files()
+
+
+if __name__ == '__main__':
+    main()

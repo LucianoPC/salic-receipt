@@ -10,11 +10,16 @@ setup(
     license = 'MIT',
     packages = find_packages(exclude=['contrib', 'docs', 'tests*']),
     install_requires = [
-        'click', 'pickle' 'requests',
+        'click', 'requests',
     ],
     data_files = [
         ('data/csv', ['data/csv/comprovantes_pagamento.csv']),
         ('data/pickle', ['data/pickle/id_arquivos.pickle'])
     ],
+    entry_points={
+        'console_scripts': [
+            'salic-receipt = salicreceipt.bin.download_receipts:main'
+        ]
+    },
     python_requires = '>=3',
 )
