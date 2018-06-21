@@ -12,10 +12,6 @@ from salicreceipt.paths import RECEIPTS_CSV_PATH, RECEIPTS_PICKLE_PATH
 def get_id_arquivos():
     id_arquivos = get_id_arquivos_from_pickle()
 
-    if len(id_arquivos) == 0:
-        id_arquivos = get_id_arquivos_from_csv()
-        save_id_arquivos_on_pickle(id_arquivos)
-
     return id_arquivos
 
 
@@ -67,7 +63,7 @@ def print_download_percentage(downloaded_receipts, len_receipts):
     empty_progress = ' ' * (50 - progress)
     percentage_progress = (downloaded_receipts * 100 / len_receipts)
 
-    message = "\r[%s%s] %d / %d  (%d%% / 100%%)" % (
+    message = "\r[%s%s] %d / %d  [%d%%]" % (
         fill_progress,
         empty_progress,
         downloaded_receipts,
@@ -88,6 +84,8 @@ def download_receipt_files(limit, offset, output_folder):
     len_receipts = len(id_arquivos)
 
     print_download_percentage(downloaded_receipts, len_receipts)
+
+    os.makedirs(output_folder, exist_ok=True)
 
     for id_arquivo in id_arquivos:
         download_receipt_file(id_arquivo, output_folder)

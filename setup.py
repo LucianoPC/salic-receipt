@@ -13,7 +13,6 @@ setup(
         'click', 'requests',
     ],
     data_files = [
-        ('data/csv', ['data/csv/comprovantes_pagamento.csv']),
         ('data/pickle', ['data/pickle/id_arquivos.pickle'])
     ],
     entry_points={
