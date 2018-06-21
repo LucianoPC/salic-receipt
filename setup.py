@@ -7,6 +7,7 @@ setup(
     license = 'GPL v3.0',
     packages = find_packages(exclude=['contrib', 'docs', 'tests*']),
     install_requires = [
+        'requests'
     ],
     data_files = [
         ('data/csv', ['data/csv/comprovantes_pagamento.csv'])
