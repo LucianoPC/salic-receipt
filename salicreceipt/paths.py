@@ -1,7 +1,7 @@
 import os
+import sys
 
-FILE_PATH = os.path.realpath(__file__)
-PROJECT_ROOT = os.path.abspath(os.path.join(FILE_PATH, os.pardir, os.pardir))
+PROJECT_ROOT = sys.prefix
 DATA_PATH = os.path.join(PROJECT_ROOT, 'data')
 DATA_CSV_PATH = os.path.join(DATA_PATH, 'csv')
 DATA_PICKLE_PATH = os.path.join(DATA_PATH, 'pickle')
